@@ -1,12 +1,22 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { db } from "../firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
 export const addBooking = createAsyncThunk(
   "bookings/addBooking",
   async (booking) => {
     const docRef = await addDoc(collection(db, "bookings"), booking);
     return { id: docRef.id, ...booking };
+  }
+);
+
+export const fetchBookings = createAsyncThunk(
+  "bookings/fetchBookings",
+  async () => {
+    const snapshot = await getDocs(collection(db, "bookings"));
+    let bookings = [];
+    snapshot.forEach((doc) => bookings.push({ id: doc.id, ...doc.data() }));
+    return bookings;
   }
 );
 
@@ -24,6 +34,16 @@ const bookingsSlice = createSlice({
         state.status = "succeeded";
       })
       .addCase(addBooking.rejected, (state) => {
+        state.status = "failed";
+      })
+      .addCase(fetchBookings.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchBookings.fulfilled, (state, action) => {
+        state.bookings = action.payload;
+        state.status = "succeeded";
+      })
+      .addCase(fetchBookings.rejected, (state) => {
         state.status = "failed";
       });
   },

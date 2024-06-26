@@ -5,6 +5,9 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import MoviePage from "./pages/MoviePage";
 import BookingConfirmation from "./pages/BookingConfirmation";
+import MovieList from "./components/MoviesList";
+import ShowTime from "./components/ShowTime";
+import BookedMovies from "./pages/BookedMovies";
 
 function App() {
   return (
@@ -14,6 +17,9 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/movies" element={<MovieList />} />
+            <Route path="/showTime" element={<ShowTime />} />
+            <Route path="/bookedMovies" element={<BookedMovies />} />
             <Route path="/movie/:id" element={<MoviePage />} />
             <Route
               path="/booking-confirmation"

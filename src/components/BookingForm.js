@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { useDispatch } from "react-redux";
-import { addBooking } from "../features/bookingsSlice";
+import { addBooking} from "../features/bookingsSlice";
 import { useNavigate } from "react-router-dom";
+
 
 const BookingForm = ({ movie }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();

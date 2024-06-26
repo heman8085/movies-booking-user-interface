@@ -12,7 +12,7 @@ const MovieList = () => {
   }, [dispatch]);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
       {status === "loading" && <p>Loading...</p>}
       {status === "succeeded" &&
         movies.map((movie) => (
@@ -20,7 +20,7 @@ const MovieList = () => {
             <img
               src={movie.posterUrl}
               alt={movie.name}
-              className="w-full h-64 object-cover rounded"
+              className="w-full h-96 object-cover rounded"
              
             />
             <h2 className="text-xl font-bold mt-2">{movie.name}</h2>
