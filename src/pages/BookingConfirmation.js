@@ -26,6 +26,12 @@ const BookingConfirmation = () => {
             <strong>Movie Name:</strong> {lastBooking.movieName}
           </p>
           <p>
+            <strong>Tickets:</strong> {lastBooking.tickets}
+          </p>
+          <p>
+            <strong>Theater Name:</strong> {lastBooking.theaterName}
+          </p>
+          <p>
             <strong>Showtime:</strong> {lastBooking.showtime}
           </p>
         </div>

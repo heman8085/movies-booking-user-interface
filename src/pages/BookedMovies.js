@@ -35,6 +35,12 @@ const BookedMovies = () => {
               <strong>Movie Name:</strong> {booking.movieName}
             </p>
             <p>
+              <strong>Tickets:</strong> {booking.tickets}
+            </p>
+            <p>
+              <strong>Theater Name:</strong> {booking.theaterName}
+            </p>
+            <p>
               <strong>Showtime:</strong> {booking.showtime}
             </p>
           </div>

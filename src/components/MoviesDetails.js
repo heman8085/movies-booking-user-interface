@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const MovieDetails = ({ movie }) => {
   return (
     <div className="container mx-auto p-4">
@@ -26,9 +27,6 @@ const MovieDetails = ({ movie }) => {
           </p>
           <p className="mt-2">
             <strong>IMDB Rating:</strong> {movie.imdbRating}
-          </p>
-          <p className="mt-2">
-            <strong>Showtime:</strong> {movie.showtime}
           </p>
           <a
             href={movie.trailerLink}

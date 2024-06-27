@@ -8,6 +8,7 @@ import BookingConfirmation from "./pages/BookingConfirmation";
 import MovieList from "./components/MoviesList";
 import ShowTime from "./components/ShowTime";
 import BookedMovies from "./pages/BookedMovies";
+import BookingForm from "./components/BookingForm";
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/movies" element={<MovieList />} />
             <Route path="/showTime" element={<ShowTime />} />
+            <Route
+              path="/bookingForm/:movieId/:showtimeId"
+              element={<BookingForm />}
+            />
             <Route path="/bookedMovies" element={<BookedMovies />} />
             <Route path="/movie/:id" element={<MoviePage />} />
             <Route
