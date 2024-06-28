@@ -6,8 +6,6 @@ const BookingConfirmation = () => {
   const bookings = useSelector((state) => state.bookings.bookings);
   const lastBooking = bookings[bookings.length - 1];
  
-
-  
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-4">Booking Confirmation</h1>

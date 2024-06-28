@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies } from "../features/moviesSlice";
@@ -41,12 +42,15 @@ const HeroSection = () => {
     <div className="container mx-auto p-4">
       <Slider {...settings}>
         {heroSectionMovies.map((movie) => (
-          <div key={movie.id}>
+          <div key={movie.id} className="relative h-96">
             <img
               src={movie.posterUrl}
               alt={movie.name}
-              className="w-full h-96 object-cover rounded"
+              className="w-full h-full object-cover rounded"
             />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+              <h1 className="text-white text-7xl font-bold">{movie.name}</h1>
+            </div>
           </div>
         ))}
       </Slider>
