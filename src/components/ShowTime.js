@@ -1,11 +1,13 @@
+
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies } from "../features/moviesSlice";
 import { fetchShowtimes } from "../features/showtimesSlice";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const ShowTime = () => {
   const dispatch = useDispatch();
+  const { movieId } = useParams();
 
   const { movies, status: moviesStatus } = useSelector((state) => state.movies);
   const { showtimes, status: showtimesStatus } = useSelector(
@@ -29,9 +31,13 @@ const ShowTime = () => {
     return <p>Failed to load movie details or showtimes.</p>;
   }
 
+  const moviesToDisplay = movieId
+    ? movies.filter((movie) => movie.id === movieId)
+    : movies;
+
   return (
     <div className="container mx-auto p-4">
-      {movies.map((movie) => (
+      {moviesToDisplay.map((movie) => (
         <div key={movie.id} className="flex mb-8">
           <img
             src={movie.posterUrl}
@@ -92,3 +98,4 @@ const ShowTime = () => {
 };
 
 export default ShowTime;
+
